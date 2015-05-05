@@ -1,5 +1,3 @@
-/* jshint -W097 */
-/* global angular, console */
 'use strict';
 
 /**
