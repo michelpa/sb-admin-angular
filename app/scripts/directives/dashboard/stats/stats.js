@@ -1,3 +1,5 @@
+/* jshint -W097 */
+/* global angular, console */
 'use strict';
 
 /**
@@ -7,20 +9,25 @@
  * # adminPosHeader
  */
 angular.module('sbAdminApp')
-    .directive('stats',function() {
-    	return {
-  		templateUrl:'scripts/directives/dashboard/stats/stats.html',
-  		restrict:'E',
-  		replace:true,
-  		scope: {
+  .directive('stats', function() {
+    return {
+      templateUrl: 'scripts/directives/dashboard/stats/stats.html',
+      restrict: 'E',
+      replace: true,
+      scope: {
         'model': '=',
         'comments': '@',
         'number': '@',
         'name': '@',
         'colour': '@',
-        'details':'@',
-        'type':'@'
-  		}
-  		
-  	}
+        'details': '@',
+        'type': '@',
+        'url': '@?'
+      },
+      compile: function(element, attrs) {
+        if (!attrs.url) {
+          attrs.url = '#';
+        }
+      },
+    };
   });
